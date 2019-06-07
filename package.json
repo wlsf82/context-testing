@@ -1,0 +1,30 @@
+{
+  "name": "contextual-testing",
+  "version": "1.0.0",
+  "description": "Use the same end-to-end tests to run context-based validations (e.g., accessibility, functional, visual, etc.)",
+  "main": "conf.js",
+  "scripts": {
+    "pretest": "webdriver-manager update --gecko false",
+    "test:accessibility": "export TEST_CONTEXT=accessibility npm run pretest && protractor conf.js",
+    "test:functional": "export TEST_CONTEXT=functional npm run pretest && protractor conf.js",
+    "test:visual": "export TEST_CONTEXT=visual npm run pretest && protractor conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "gitlab.com/wlsf82/contextual-testing"
+  },
+  "keywords": [
+    "testing",
+    "automation",
+    "selenium",
+    "protractor",
+    "end-to-end",
+    "context-based testing"
+  ],
+  "author": "Walmyr Lima e Silva Filho <wlsf82@gmail.com> (https://walmyr-filho.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "protractor": "^5.4.2",
+    "protractor-helper": "^3.7.7"
+  }
+}
