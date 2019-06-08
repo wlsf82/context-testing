@@ -1,5 +1,5 @@
 const helper = require("protractor-helper")
-const path = require("path");
+const path = require("path")
 
 const context = process.env.TEST_CONTEXT
 
