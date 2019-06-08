@@ -9,7 +9,7 @@ if (context !== 'accessibility' && context !== 'functional' && context !== 'visu
   console.log(`Running tests in ${context} mode.`)
 
   describe("Sample app", () => {
-    beforeEach(() => browser.get("#"))
+    beforeEach(() => browser.get(""))
     
     describe("shorten/expand", () => {
       const shortUrl = "https://foo.bar"
