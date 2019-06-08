@@ -29,15 +29,13 @@ if (context !== 'accessibility' && context !== 'functional' && context !== 'visu
       const expandedUrl = "https://foo.bar.baz.bah.boo"
       
       it("shortens a URL", () => {
-        helper.clearFieldAndFillItWithText(sampleApp.inputTextField, expandedUrl)
-        helper.click(sampleApp.shortenButton)
+        sampleApp.shortenUrl(expandedUrl)
       
         helper.waitForTextToBePresentInElement(sampleApp.result, shortUrl)
       })
       
       it("expands a URL", () => {
-        helper.clearFieldAndFillItWithText(sampleApp.inputTextField, shortUrl)
-        helper.click(sampleApp.expandButton)
+        sampleApp.expandUrl(shortUrl)
       
         helper.waitForTextToBePresentInElement(sampleApp.result, expandedUrl)
       })
