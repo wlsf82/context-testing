@@ -26,4 +26,4 @@ class SampleApp {
   }
 }
 
-module.exports = SampleApp;
+module.exports = SampleApp
