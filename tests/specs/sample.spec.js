@@ -4,6 +4,8 @@ const eyes = new Eyes()
 const helper = require("protractor-helper")
 const path = require("path")
 
+const SampleApp = require("../page-objects/SampleApp")
+
 const context = process.env.TEST_CONTEXT
 
 if (context !== 'accessibility' && context !== 'functional' && context !== 'visual') {
@@ -15,32 +17,29 @@ if (context !== 'accessibility' && context !== 'functional' && context !== 'visu
   const SHOW_FILE_NAME_ON_UPLOAD_BUTTON = "show file name on upload button"
 
   describe(SAMPLE_APP, () => {
-    beforeEach(() => browser.get(""))
+    let sampleApp
+
+    beforeEach(() => {
+      sampleApp = new SampleApp()
+      browser.get("")
+    })
     
     describe("shorten/expand", () => {
       const shortUrl = "https://foo.bar"
       const expandedUrl = "https://foo.bar.baz.bah.boo"
       
       it("shortens a URL", () => {
-        const inputTextField = element(by.id("input"))
-        const shortenButton = element(by.id("shorten"))
+        helper.clearFieldAndFillItWithText(sampleApp.inputTextField, expandedUrl)
+        helper.click(sampleApp.shortenButton)
       
-        helper.clearFieldAndFillItWithText(inputTextField, expandedUrl)
-        helper.click(shortenButton)
-      
-        const result = element(by.id("responseField"))
-        helper.waitForTextToBePresentInElement(result, shortUrl)
+        helper.waitForTextToBePresentInElement(sampleApp.result, shortUrl)
       })
       
       it("expands a URL", () => {
-        const inputTextField = element(by.id("input"))
-        const expandButton = element(by.id("expand"))
+        helper.clearFieldAndFillItWithText(sampleApp.inputTextField, shortUrl)
+        helper.click(sampleApp.expandButton)
       
-        helper.clearFieldAndFillItWithText(inputTextField, shortUrl)
-        helper.click(expandButton)
-      
-        const result = element(by.id("responseField"))
-        helper.waitForTextToBePresentInElement(result, expandedUrl)
+        helper.waitForTextToBePresentInElement(sampleApp.result, expandedUrl)
       })
     })
       
@@ -50,11 +49,9 @@ if (context !== 'accessibility' && context !== 'functional' && context !== 'visu
         const relativePathOfFileToUpload = `../assets/${CARTOON_DOT_GIF}`
         const absolutePathOfFileToUpload = path.resolve(__dirname, relativePathOfFileToUpload)
   
-        const fileInputField = element(by.id("file"))
-        helper.uploadFileIntoInputField(fileInputField, absolutePathOfFileToUpload)
+        helper.uploadFileIntoInputField(sampleApp.fileInputField, absolutePathOfFileToUpload)
             
-        const fileUploadForm = element(by.id("file-upload"))
-        helper.waitForTextToBePresentInElement(fileUploadForm, CARTOON_DOT_GIF)
+        helper.waitForTextToBePresentInElement(sampleApp.fileUploadForm, CARTOON_DOT_GIF)
         contextValidation(context)
       })
     })
