@@ -12,7 +12,9 @@ Run `npm run test:accessibility` to run the tests in accessibility mode.
 
 Run `npm run test:functional` to run the tests in functional mode.
 
-Run `npm run test:visual` to run the tests in visual mode.
+Run `export APPLITOOLS_API_KEY=<your_api_key> && npm run test:visual` to run the tests in visual mode.
+
+> Note: to run tests in visual mode you need an account on [Applitools](http://applitools.com), and you need to provide your API key in the above command in replacement to `<your_api_key>`.
 
 ___
 
