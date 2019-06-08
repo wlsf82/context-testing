@@ -24,7 +24,6 @@ if (context !== 'accessibility' && context !== 'functional' && context !== 'visu
       
         const result = element(by.id("responseField"))
         helper.waitForTextToBePresentInElement(result, shortUrl)
-        contextValidation(context)
       })
       
       it("expands a URL", () => {
@@ -36,7 +35,6 @@ if (context !== 'accessibility' && context !== 'functional' && context !== 'visu
       
         const result = element(by.id("responseField"))
         helper.waitForTextToBePresentInElement(result, expandedUrl)
-        contextValidation(context)
       })
     })
       
