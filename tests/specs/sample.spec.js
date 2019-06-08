@@ -12,7 +12,10 @@ if (context !== 'accessibility' && context !== 'functional' && context !== 'visu
 } else {
   console.log(`Running tests in ${context} mode.`)
 
-  describe("Sample app", () => {
+  const SAMPLE_APP = "Sample app"
+  const SHOW_FILE_NAME_ON_UPLOAD_BUTTON = "show file name on upload button"
+
+  describe(SAMPLE_APP, () => {
     beforeEach(() => browser.get(""))
     
     describe("shorten/expand", () => {
@@ -43,7 +46,7 @@ if (context !== 'accessibility' && context !== 'functional' && context !== 'visu
     })
       
     describe("file upload", () => {
-      it("show file name on upload button", () => {
+      it(SHOW_FILE_NAME_ON_UPLOAD_BUTTON, () => {
         const CARTOON_DOT_GIF = "cartoon.gif"
         const relativePathOfFileToUpload = `../assets/${CARTOON_DOT_GIF}`
         const absolutePathOfFileToUpload = path.resolve(__dirname, relativePathOfFileToUpload)
@@ -66,8 +69,8 @@ if (context !== 'accessibility' && context !== 'functional' && context !== 'visu
       case "functional":
         break
       case "visual":
-        eyes.open(browser, "Sample app", "scenario")
-        eyes.checkWindow("Visual validataion")
+        eyes.open(browser, SAMPLE_APP, SHOW_FILE_NAME_ON_UPLOAD_BUTTON)
+        eyes.checkWindow(`${ctx} validataion`)
         eyes.close()
         break
       default:
