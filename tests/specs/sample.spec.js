@@ -1,6 +1,5 @@
 const Eyes = require("eyes.selenium").Eyes
 const eyes = new Eyes()
-eyes.setApiKey(process.env.APPLITOOLS_API_KEY)
 
 const helper = require("protractor-helper")
 const path = require("path")
@@ -69,6 +68,7 @@ if (context !== 'accessibility' && context !== 'functional' && context !== 'visu
       case "functional":
         break
       case "visual":
+        eyes.setApiKey(process.env.APPLITOOLS_API_KEY)
         eyes.open(browser, SAMPLE_APP, SHOW_FILE_NAME_ON_UPLOAD_BUTTON)
         eyes.checkWindow(`${ctx} validataion`)
         eyes.close()
