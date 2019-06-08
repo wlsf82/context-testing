@@ -5,9 +5,9 @@
   "main": "conf.js",
   "scripts": {
     "pretest": "webdriver-manager update --gecko false",
-    "test:accessibility": "export TEST_CONTEXT=accessibility npm run pretest && protractor conf.js",
-    "test:functional": "export TEST_CONTEXT=functional npm run pretest && protractor conf.js",
-    "test:visual": "export TEST_CONTEXT=visual npm run pretest && protractor conf.js"
+    "test:accessibility": "export TEST_CONTEXT=accessibility && npm run pretest && protractor conf.js",
+    "test:functional": "export TEST_CONTEXT=functional && npm run pretest && protractor conf.js",
+    "test:visual": "export TEST_CONTEXT=visual && npm run pretest && protractor conf.js"
   },
   "repository": {
     "type": "git",
