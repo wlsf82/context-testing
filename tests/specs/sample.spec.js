@@ -33,6 +33,7 @@ describe(SAMPLE_APP, () => {
       
   describe("file upload", () => {
     const SHOW_FILE_NAME_ON_UPLOAD_BUTTON = "show file name on upload button"
+
     it(SHOW_FILE_NAME_ON_UPLOAD_BUTTON, () => {
       sampleApp.uploadFile()
             
