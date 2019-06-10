@@ -1,5 +1,4 @@
 const helper = require("protractor-helper")
-const path = require("path")
 
 const SampleApp = require("../page-objects/SampleApp")
 
@@ -37,13 +36,9 @@ describe(SAMPLE_APP, () => {
       
   describe("file upload", () => {
     it(SHOW_FILE_NAME_ON_UPLOAD_BUTTON, () => {
-      const CARTOON_DOT_GIF = "cartoon.gif"
-      const relativePathOfFileToUpload = `../assets/${CARTOON_DOT_GIF}`
-      const absolutePathOfFileToUpload = path.resolve(__dirname, relativePathOfFileToUpload)
-  
-      helper.uploadFileIntoInputField(sampleApp.fileInputField, absolutePathOfFileToUpload)
+      sampleApp.uploadFile()
             
-      helper.waitForTextToBePresentInElement(sampleApp.fileUploadForm, CARTOON_DOT_GIF)
+      helper.waitForTextToBePresentInElement(sampleApp.fileUploadForm, "cartoon.gif")
       contextValidation(context, browser, SAMPLE_APP, SHOW_FILE_NAME_ON_UPLOAD_BUTTON)
     })
   })
