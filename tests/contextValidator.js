@@ -1,7 +1,8 @@
 const AxeBuilder = require("axe-webdriverjs")
 const Eyes = require("eyes.selenium").Eyes
 
-function contextValidation(context, browser, testSuite, testCase) {
+function contextValidation(browser, testSuite, testCase) {
+  const context = process.env.TEST_CONTEXT
   switch(context) {
     case "accessibility":
       accessibilityValidation(browser)
