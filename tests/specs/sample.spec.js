@@ -3,7 +3,7 @@ const path = require("path")
 
 const SampleApp = require("../page-objects/SampleApp")
 
-contextValidation = require("../contextValidator")
+const contextValidation = require("../contextValidator")
 
 const context = process.env.TEST_CONTEXT
 
