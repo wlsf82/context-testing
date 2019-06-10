@@ -1,12 +1,9 @@
-const AxeBuilder = require("axe-webdriverjs")
-
-const Eyes = require("eyes.selenium").Eyes
-const eyes = new Eyes()
-
 const helper = require("protractor-helper")
 const path = require("path")
 
 const SampleApp = require("../page-objects/SampleApp")
+
+contextValidation = require("../contextValidator")
 
 const context = process.env.TEST_CONTEXT
 
@@ -52,33 +49,8 @@ if (context !== "accessibility" && context !== "functional" && context !== "visu
         helper.uploadFileIntoInputField(sampleApp.fileInputField, absolutePathOfFileToUpload)
             
         helper.waitForTextToBePresentInElement(sampleApp.fileUploadForm, CARTOON_DOT_GIF)
-        contextValidation(context)
+        contextValidation(context, browser, SAMPLE_APP, SHOW_FILE_NAME_ON_UPLOAD_BUTTON)
       })
     })
   })
-  
-  function contextValidation(ctx) {
-    switch(ctx) {
-      case "accessibility":
-        AxeBuilder(browser.driver)
-          .analyze((error, results) => {
-            if (error) console.log(`Error: ${error}`)
-            if (results.violations.length > 0) {
-              console.log(results.violations)
-              expect(results.violations.length).toBe(0)
-            }
-          })
-        break
-      case "functional":
-        break
-      case "visual":
-        eyes.setApiKey(process.env.APPLITOOLS_API_KEY)
-        eyes.open(browser, SAMPLE_APP, SHOW_FILE_NAME_ON_UPLOAD_BUTTON)
-        eyes.checkWindow(`${ctx} validataion`)
-        eyes.close()
-        break
-      default:
-        break
-    }
-  }
 }
