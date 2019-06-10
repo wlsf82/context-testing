@@ -1,4 +1,5 @@
 const helper = require("protractor-helper")
+const path = require("path")
 
 class SampleApp {
   constructor() {
@@ -23,6 +24,13 @@ class SampleApp {
   clearAndFillInputTextFieldWithUrl(url) {
     helper.clear(this.inputTextField)
     helper.fillFieldWithText(this.inputTextField, url)
+  }
+
+  uploadFile(fileName = "cartoon.gif") {
+    const relativePathOfFileToUpload = `../assets/${fileName}`
+    const absolutePathOfFileToUpload = path.resolve(__dirname, relativePathOfFileToUpload)
+
+    helper.uploadFileIntoInputField(this.fileInputField, absolutePathOfFileToUpload)
   }
 }
 
