@@ -35,7 +35,7 @@ describe(SAMPLE_APP, () => {
     const SHOW_FILE_NAME_ON_UPLOAD_BUTTON = "show file name on upload button"
 
     it(SHOW_FILE_NAME_ON_UPLOAD_BUTTON, () => {
-      sampleApp.uploadFile()
+      sampleApp.uploadSampleFile()
             
       helper.waitForTextToBePresentInElement(sampleApp.fileUploadForm, "cartoon.gif")
       contextValidation(browser, SAMPLE_APP, SHOW_FILE_NAME_ON_UPLOAD_BUTTON)

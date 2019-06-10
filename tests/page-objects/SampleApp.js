@@ -26,8 +26,8 @@ class SampleApp {
     helper.fillFieldWithText(this.inputTextField, url)
   }
 
-  uploadFile(fileName = "cartoon.gif") {
-    const relativePathOfFileToUpload = `../assets/${fileName}`
+  uploadSampleFile() {
+    const relativePathOfFileToUpload = "../assets/cartoon.gif"
     const absolutePathOfFileToUpload = path.resolve(__dirname, relativePathOfFileToUpload)
 
     helper.uploadFileIntoInputField(this.fileInputField, absolutePathOfFileToUpload)
