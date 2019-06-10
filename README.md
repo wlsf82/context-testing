@@ -1,6 +1,6 @@
 # Contextual testing
 
-Use the same end-to-end tests to run context-based validations (e.g., accessibility, functional, visual, etc.)
+Use the same end-to-end tests to run context-based validations (e.g., accessibility testing with Axe, functional testing with Protractor, visual testing with Applitools, etc.)
 
 ## Installation
 
