@@ -5,7 +5,6 @@ const SampleApp = require("../page-objects/SampleApp")
 const contextValidation = require("../contextValidator")
 
 const SAMPLE_APP = "Sample app"
-const SHOW_FILE_NAME_ON_UPLOAD_BUTTON = "show file name on upload button"
 
 describe(SAMPLE_APP, () => {
   let sampleApp
@@ -33,6 +32,7 @@ describe(SAMPLE_APP, () => {
   })
       
   describe("file upload", () => {
+    const SHOW_FILE_NAME_ON_UPLOAD_BUTTON = "show file name on upload button"
     it(SHOW_FILE_NAME_ON_UPLOAD_BUTTON, () => {
       sampleApp.uploadFile()
             
