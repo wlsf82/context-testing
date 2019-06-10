@@ -2,21 +2,17 @@ const AxeBuilder = require("axe-webdriverjs")
 const Eyes = require("eyes.selenium").Eyes
 
 function contextValidation(context, browser, testSuite, testCase) {
-  if (context !== "accessibility" && context !== "functional" && context !== "visual") {
-    console.log(`Invalid test mode: ${context}`)
-  } else {
-    switch(context) {
-      case "accessibility":
-        accessibilityValidation(browser)
-        break
-      case "functional":
-        break
-      case "visual":
-        visualValidation(browser, testSuite, testCase)
-        break
-      default:
-        break
-    }
+  switch(context) {
+    case "accessibility":
+      accessibilityValidation(browser)
+      break
+    case "functional":
+      break
+    case "visual":
+      visualValidation(browser, testSuite, testCase)
+      break
+    default:
+      break
   }
 }
 
