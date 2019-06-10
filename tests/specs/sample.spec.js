@@ -1,3 +1,5 @@
+const AxeBuilder = require("axe-webdriverjs")
+
 const Eyes = require("eyes.selenium").Eyes
 const eyes = new Eyes()
 
@@ -8,7 +10,7 @@ const SampleApp = require("../page-objects/SampleApp")
 
 const context = process.env.TEST_CONTEXT
 
-if (context !== 'accessibility' && context !== 'functional' && context !== 'visual') {
+if (context !== "accessibility" && context !== "functional" && context !== "visual") {
   console.log(`Invalid test mode: ${context}`)
 } else {
   console.log(`Running tests in ${context} mode.`)
@@ -58,7 +60,14 @@ if (context !== 'accessibility' && context !== 'functional' && context !== 'visu
   function contextValidation(ctx) {
     switch(ctx) {
       case "accessibility":
-        console.log(`Running ${ctx} validation...`)
+        AxeBuilder(browser.driver)
+          .analyze((error, results) => {
+            if (error) console.log(`Error: ${error}`)
+            if (results.violations.length > 0) {
+              console.log(results.violations)
+              expect(results.violations.length).toBe(0)
+            }
+          })
         break
       case "functional":
         break
