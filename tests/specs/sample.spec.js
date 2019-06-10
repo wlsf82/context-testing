@@ -4,8 +4,6 @@ const SampleApp = require("../page-objects/SampleApp")
 
 const contextValidation = require("../contextValidator")
 
-const context = process.env.TEST_CONTEXT
-
 const SAMPLE_APP = "Sample app"
 const SHOW_FILE_NAME_ON_UPLOAD_BUTTON = "show file name on upload button"
 
@@ -39,7 +37,7 @@ describe(SAMPLE_APP, () => {
       sampleApp.uploadFile()
             
       helper.waitForTextToBePresentInElement(sampleApp.fileUploadForm, "cartoon.gif")
-      contextValidation(context, browser, SAMPLE_APP, SHOW_FILE_NAME_ON_UPLOAD_BUTTON)
+      contextValidation(browser, SAMPLE_APP, SHOW_FILE_NAME_ON_UPLOAD_BUTTON)
     })
   })
 })
