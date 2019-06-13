@@ -12,18 +12,13 @@ class SampleApp {
   }
 
   shortenUrl(url) {
-    this.clearAndFillInputTextFieldWithUrl(url)
+    helper.fillFieldWithText(this.inputTextField, url)
     helper.click(this.shortenButton)
   }
 
   expandUrl(url) {
-    this.clearAndFillInputTextFieldWithUrl(url)
-    helper.click(this.expandButton)
-  }
-
-  clearAndFillInputTextFieldWithUrl(url) {
-    helper.clear(this.inputTextField)
     helper.fillFieldWithText(this.inputTextField, url)
+    helper.click(this.expandButton)
   }
 
   uploadSampleFile() {
