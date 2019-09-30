@@ -27,6 +27,6 @@
     "axe-webdriverjs": "^2.2.0",
     "eyes.selenium": "^3.6.3",
     "protractor": "^5.4.2",
-    "protractor-helper": "^3.7.7"
+    "protractor-helper": "^3.7.12"
   }
 }
