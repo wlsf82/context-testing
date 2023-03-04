@@ -26,7 +26,7 @@
   "devDependencies": {
     "axe-webdriverjs": "^2.2.0",
     "eyes.selenium": "^3.6.3",
-    "protractor": "^5.4.2",
+    "protractor": "^5.4.4",
     "protractor-helper": "^3.7.12"
   }
 }
